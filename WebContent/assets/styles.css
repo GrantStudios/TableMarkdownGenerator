@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900');
+
+body {
+    font-family: Roboto;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+table {
+    border-collapse: collapse;
+    font-family: system-ui;
+    font-size: 13px;
+    z-index: 1;
+}
+
+table td {
+    padding: 8.5px 10px;
+    min-width: 50px;
+    height: 30px;
+    border: 1px solid grey;
+}
+
+table td:focus {
+    border-color: #59a4de;
+    box-shadow: rgb(0, 116, 204, 0.15) 0px 0px 0px 4px;
+    outline: 0;
+}
+
+.table-add-column {
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dbefff;
+    border: 1px solid #a7d6fc;
+    border-left: none;
+    border-top: none;
+    flex: 1;
+}
+
+.table-remove-column {
+    background-color: #ffdbdb;
+    border: 1px solid #fca7a7;
+    text-align: center;
+    border-left: none;
+}
+
+.table-add-row {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dbefff;
+    border: 1px solid #a7d6fc;
+    border-top: none;
+    flex: 1;
+    border-left: none;
+}
+
+.table-remove-row {
+    background-color: #ffdbdb;
+    border: 1px solid #fca7a7;
+    width: 21px;
+    text-align: center;
+    border-top: none;
+}
+
+.table-container {
+    display: inline-block;
+}
+
+.table-button {
+    user-select: none;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.table-add:hover {
+    background-color: #a7d6fc;
+}
+
+.table-remove:hover {
+    background-color: #fca7a7;
+}
+
+.table-column-controls {
+    display: flex;
+    flex-direction: column;
+}
+
+tr:first-child {
+    font-weight: bold;
+}
+
+#resultarea {
+    padding: 20px 10px;
+    border: 1px solid;
+}
+
+#result {
+    margin: 0;
+}
+
+tr:first-of-type {
+    border-bottom: 2px solid grey;
+}
+
+.options .options-list .option {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    font-weight: 300;
+    font-size: 17px;
+}
+
+.options .options-list .option input[type="checkbox"] {
+    margin-right: 7.5px;
+}
+
+.top-row {
+    display: flex;
+    margin-bottom:10px;
+}
+
+.top-row>div {
+    flex: 1;
+}
