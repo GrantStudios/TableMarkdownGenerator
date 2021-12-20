@@ -1,11 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900');
 body {
     font-family: Roboto;
+    height: 100%;
+    margin: auto;
+    background-color: #ededed;
+}
+
+.material-icons {
+    user-select: none;
 }
 
 .container {
     width: 80%;
     margin: auto;
+    padding: 15px 20px;
+    background-color: white;
 }
 
 table {
@@ -101,7 +110,6 @@ tr:first-of-type {
 
 .options .options-list .option {
     display: flex;
-    justify-content: right;
     align-items: center;
     font-weight: 300;
     font-size: 17px;
@@ -111,18 +119,18 @@ tr:first-of-type {
     margin-right: 7.5px;
 }
 
-.top-row {
+.mid-row {
     display: flex;
     margin-bottom: 10px;
 }
 
-.top-row>div {
+.mid-row>div {
     flex: 1;
 }
 
 #resultarea {
-    border: 1px solid;
     position: relative;
+    border: 1px solid #ededed;
 }
 
 #result {
@@ -131,15 +139,84 @@ tr:first-of-type {
     overflow: auto;
 }
 
-#copybutton {
-    height: 30px;
-    width: 70px;
+.top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#options {
+    padding: 10px;
+    border: 1px solid #ededed;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
+}
+
+#options:hover {
     background-color: #ededed;
-    font-size: 15px;
+}
+
+.options {
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: white;
+    z-index: 1;
+    border-radius: 4px;
+    padding: 10px 20px;
+    min-width: 200px;
+    box-shadow: 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%), 0px 5px 5px -3px rgb(0 0 0 / 20%);
+    text-align: center;
+}
+
+.options .options-list {
+    padding-bottom: 10px;
+}
+
+.options .options-list .option label {
+    flex: 1;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.options .title {
+    margin-top: 5px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 300;
+    color: grey;
+}
+
+.small-caption {
+    color: grey;
+    font-size: 13px;
+}
+
+.toolbar {
+    display: flex;
+}
+
+.toolbar .btn {
+    height: 30px;
+    padding:0 20px;
+    background-color: #ededed;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     font-weight: 300;
     font-size: 14px;
+    margin:0 10px;
+}
+
+.toolbar .btn:first-child{
+    margin-left:0;
+}
+
+.toolbar .btn .material-icons {
+    font-size: 14px;
+    margin-right: 5px;
 }

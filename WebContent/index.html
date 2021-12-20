@@ -1,11 +1,29 @@
 <html>
+
 <head>
     <title>Table Markdown Generator Tool</title>
-    <link rel="stylesheet" href="assets/styles.css"/>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/icons/icons.css" />
 </head>
+
 <body>
     <div class="container">
         <div class="top-row">
+            <h1 style="font-weight:300">Table Markdown Generator</h1>
+            <div id="options" class="shadowed-button"><span class="material-icons">settings</span>
+                <div class="options">
+                    <p class="title">Options</p>
+                    <div class="options-list">
+                        <div class="option">
+                            <input type="checkbox" id="preserve_linebreaks" data-prop="preserve_linebreaks" checked>
+                            <label for="preserve_linebreaks">Preserve linebreaks</label>
+                        </div>
+                    </div>
+                    <span class="small-caption">Click outside to close</span>
+                </div>
+            </div>
+        </div>
+        <div class="mid-row">
             <div>
                 <div class="table-container">
                     <div style="display:flex">
@@ -40,18 +58,11 @@
                     </div>
                 </div>
             </div>
-            <div class="options">
-                <div class="options-list">
-                    <div class="option">
-                        <input type="checkbox" data-prop="preserve_linebreaks" checked>Preserve linebreaks
-                    </div>
-                </div>
-            </div>
+        </div>
+        <div class="toolbar">
+            <div id="copybutton" class="btn"><span class="material-icons">content_copy</span> Copy</div>
         </div>
         <div id="resultarea">
-            <div class="toolbar">
-                <div id="copybutton">Copy</div>
-            </div>
             <pre id="result">|  |  |  |
 |--|--|--|
 |  |  |  |

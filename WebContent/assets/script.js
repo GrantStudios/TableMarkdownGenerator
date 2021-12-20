@@ -70,12 +70,14 @@ function getLengthOfColumnIndex(index) {
 let lastCopyTimeout;
 let copyButton = $('#copybutton');
 
+let initialContent = copyButton.html();
+
 copyButton.on('click', function(){
     copyToClipboard(resultArea.text());
     copyButton.text('Copied!');
     clearTimeout(lastCopyTimeout);
     lastCopyTimeout = setTimeout(function(){
-        copyButton.text('Copy');
+        copyButton.html(initialContent);
     }, 1000);
 })
 
@@ -88,3 +90,20 @@ function copyToClipboard(text) {
     document.body.removeChild(t);
     return res;
 }
+
+const optionToggle = $('#options');
+const optionsContainer = $('.options');
+let optionsExpanded = false;
+optionToggle.on('click', function(e){
+    optionsContainer.slideDown('fast');
+    optionsExpanded = true;
+    e.stopPropagation();
+})
+
+$(document).on('click', function(e){
+    console.log(e.target);
+    if(optionsExpanded && !$.contains(optionsContainer, e.target)){
+        optionsContainer.slideUp('fast');
+        optionsExpanded = false;
+    }
+})
