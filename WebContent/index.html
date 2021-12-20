@@ -60,6 +60,7 @@
             </div>
         </div>
         <div class="toolbar">
+            <div id="importbutton" class="btn"><span class="material-icons">file_upload</span> Import</div>
             <div id="copybutton" class="btn"><span class="material-icons">content_copy</span> Copy</div>
         </div>
         <div id="resultarea">
@@ -67,6 +68,23 @@
 |--|--|--|
 |  |  |  |
 |  |  |  |</pre>
+        </div>
+    </div>
+    <div class="modal" id="import-modal">
+        <div class="modal-content">
+            <span class="material-icons modal-close">close</span>
+            <div class="padded-area">
+                <p class="title">Import Table</p>
+                <span class="warning"><span class="material-icons">warning</span>
+                    This will overwrite previous data in the table</span>
+                <br>
+                <div id="import-area">
+                    <textarea id="import-data"></textarea>
+                </div>
+            </div>
+            <div class="modal-controls">
+                <div id="modal-import-button">Import<span class="material-icons">input</span></div>
+            </div>
         </div>
     </div>
     <script src="assets/jquery_3.5.1.min.js"></script>

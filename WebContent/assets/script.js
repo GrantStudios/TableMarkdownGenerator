@@ -72,11 +72,11 @@ let copyButton = $('#copybutton');
 
 let initialContent = copyButton.html();
 
-copyButton.on('click', function(){
+copyButton.on('click', function () {
     copyToClipboard(resultArea.text());
     copyButton.text('Copied!');
     clearTimeout(lastCopyTimeout);
-    lastCopyTimeout = setTimeout(function(){
+    lastCopyTimeout = setTimeout(function () {
         copyButton.html(initialContent);
     }, 1000);
 })
@@ -94,16 +94,51 @@ function copyToClipboard(text) {
 const optionToggle = $('#options');
 const optionsContainer = $('.options');
 let optionsExpanded = false;
-optionToggle.on('click', function(e){
+optionToggle.on('click', function (e) {
     optionsContainer.slideDown('fast');
     optionsExpanded = true;
     e.stopPropagation();
 })
 
-$(document).on('click', function(e){
-    console.log(e.target);
-    if(optionsExpanded && !$.contains(optionsContainer, e.target)){
+$(document).on('click', function (e) {
+    if (optionsExpanded && !$.contains(optionsContainer, e.target)) {
         optionsContainer.slideUp('fast');
         optionsExpanded = false;
     }
+})
+
+let tableBody = $('table tbody');
+let importModal = $('#import-modal');
+let importButton = $('#importbutton');
+let modalImportButton = $('#modal-import-button');
+let importData = $('#import-data');
+
+importButton.on('click', function () {
+    importModal.css("display", "flex").hide().fadeIn();
+})
+
+modalImportButton.on('click', function(){
+    importToTable(importData.val())
+})
+
+function importToTable(data) {
+    let split = data.trim().split("\n");
+    split.splice(1, 1);
+    tableBody.empty();
+    split.forEach(e => {
+        let values = e.slice(1, -1).split("|");
+        let row = $('<tr>');
+        values.forEach(f => {
+            let cell = $('<td contenteditable>');
+            cell.text(f.trim());
+            row.append(cell);
+        })
+        tableBody.append(row);
+    })
+    update();
+    importModal.fadeOut();
+}
+
+$('.modal-close').on('click', function(){
+    $(this).closest('.modal').fadeOut();
 })
