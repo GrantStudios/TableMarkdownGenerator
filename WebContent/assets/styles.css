@@ -77,6 +77,10 @@ table td:focus {
 }
 
 .table-container {
+    overflow: auto;
+}
+
+.table-container .table {
     display: inline-block;
 }
 
@@ -105,7 +109,7 @@ tr:first-child {
 
 tr:first-of-type {
     border-bottom: 2px solid grey;
-    background-color: #f4f4f4;
+    background-color: #f6f6f6;
 }
 
 .options .options-list .option {
@@ -119,14 +123,12 @@ tr:first-of-type {
     margin-right: 7.5px;
 }
 
-.mid-row {
-    display: flex;
+.mid-section {
     margin-bottom: 40px;
-    overflow:auto;
 }
 
-.mid-row>div {
-    flex: 1;
+.mid-section .description {
+    font-weight: 400;
 }
 
 #resultarea {
@@ -140,7 +142,7 @@ tr:first-of-type {
     overflow: auto;
 }
 
-.top-row {
+.top-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -148,7 +150,7 @@ tr:first-of-type {
     margin-bottom: 20px;
 }
 
-#options{
+#options {
     position: relative;
 }
 
@@ -164,8 +166,8 @@ tr:first-of-type {
     background-color: #ededed;
 }
 
-.shadowed-button:active{
-    background-color:#cccccc;
+.shadowed-button:active {
+    background-color: #cccccc;
 }
 
 .options {
@@ -327,5 +329,22 @@ tr:first-of-type {
 
 #import-modal-error {
     font-size: 15px;
-    display:none;
+    display: none;
+}
+
+.footer {
+    width: 80%;
+    margin: auto;
+    padding: 15px 20px;
+    background-color: white;
+    border-top: 1px solid grey;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.github-link{
+    display: inline-flex;
+    align-items: center;
+    width: 112px;
+    justify-content: space-between;
 }

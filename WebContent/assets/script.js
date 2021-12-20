@@ -1,5 +1,5 @@
 const resultArea = $('#result');
-const midRow = $('.mid-row');
+const midSection = $('.mid-section');
 
 function update() {
     resultArea.text(generateMarkdown());
@@ -11,7 +11,7 @@ $(document).on('input', 'td', function () {
 
 $('.table-add-column').on('click', function () {
     $('tr').append('<td contenteditable></td>');
-    midRow.prop('scrollLeft', midRow.prop('scrollWidth'));
+    midSection.prop('scrollLeft', midSection.prop('scrollWidth'));
     update();
 })
 
@@ -156,10 +156,10 @@ function importToTable(data) {
         }
         tempTable.append(row);
     })
-    update();
     importModal.fadeOut();
     tableBody.empty();
     tableBody.html(tempTable.html());
+    update();
 }
 
 $('.modal-close').on('click', function () {
