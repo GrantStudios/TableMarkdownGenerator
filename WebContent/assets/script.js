@@ -18,13 +18,17 @@ $('.table-add-row').on('click', function () {
 })
 
 $('.table-remove-column').on('click', function () {
-    $('tr td:last-child').remove();
-    update();
+    if ($('tr').eq(0).find('td').length > 1) {
+        $('tr td:last-child').remove();
+        update();
+    }
 })
 
 $('.table-remove-row').on('click', function () {
-    $('tr').last().remove();
-    update();
+    if ($('tr').length > 1) {
+        $('tr').last().remove();
+        update();
+    }
 })
 
 const linebreaksCheckbox = $('#preserve-linebreaks');
@@ -115,7 +119,7 @@ let importData = $('#import-data');
 let importModalError = $('#import-modal-error');
 
 importButton.on('click', function () {
-    importModalError.text('').hide();   
+    importModalError.text('').hide();
     importModal.css("display", "flex").hide().fadeIn();
 })
 
