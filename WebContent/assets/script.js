@@ -1,4 +1,6 @@
 const resultArea = $('#result');
+const midRow = $('.mid-row');
+
 function update() {
     resultArea.text(generateMarkdown());
 }
@@ -9,6 +11,7 @@ $(document).on('input', 'td', function () {
 
 $('.table-add-column').on('click', function () {
     $('tr').append('<td contenteditable></td>');
+    midRow.prop('scrollLeft', midRow.prop('scrollWidth'));
     update();
 })
 
@@ -106,7 +109,7 @@ optionToggle.on('click', function (e) {
 
 $(document).on('click', function (e) {
     if (optionsExpanded && !$.contains(optionsContainer, e.target)) {
-        optionsContainer.slideUp('fast');
+        optionsContainer.fadeOut('fast');
         optionsExpanded = false;
     }
 })

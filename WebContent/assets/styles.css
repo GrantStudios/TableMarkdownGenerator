@@ -122,6 +122,7 @@ tr:first-of-type {
 .mid-row {
     display: flex;
     margin-bottom: 40px;
+    overflow:auto;
 }
 
 .mid-row>div {
@@ -147,17 +148,24 @@ tr:first-of-type {
     margin-bottom: 20px;
 }
 
-#options {
-    padding: 10px;
-    border: 1px solid #ededed;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.2s;
+#options{
     position: relative;
 }
 
-#options:hover {
+.shadowed-button {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.shadowed-button:hover {
     background-color: #ededed;
+}
+
+.shadowed-button:active{
+    background-color:#cccccc;
 }
 
 .options {

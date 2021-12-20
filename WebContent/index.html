@@ -10,7 +10,8 @@
     <div class="container">
         <div class="top-row">
             <h1 style="font-weight:300">Table Markdown Generator</h1>
-            <div id="options" class="shadowed-button"><span class="material-icons">settings</span>
+            <div id="options">
+                <div class="shadowed-button"><span class="material-icons">settings</span></div>
                 <div class="options">
                     <p class="title">Options</p>
                     <div class="options-list">
@@ -59,12 +60,14 @@
                 </div>
             </div>
         </div>
+        <hr>
+        <h3>Result</h3>
         <div class="toolbar">
             <div id="importbutton" class="btn"><span class="material-icons">file_upload</span> Import</div>
             <div id="copybutton" class="btn"><span class="material-icons">content_copy</span> Copy</div>
         </div>
         <div id="resultarea">
-            <pre id="result">|  |  |  |
+            <pre id="result" contenteditable>|  |  |  |
 |--|--|--|
 |  |  |  |
 |  |  |  |</pre>
