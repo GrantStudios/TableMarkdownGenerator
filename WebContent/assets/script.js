@@ -66,3 +66,25 @@ function getLengthOfColumnIndex(index) {
         return a;
     }, 0)
 }
+
+let lastCopyTimeout;
+let copyButton = $('#copybutton');
+
+copyButton.on('click', function(){
+    copyToClipboard(resultArea.text());
+    copyButton.text('Copied!');
+    clearTimeout(lastCopyTimeout);
+    lastCopyTimeout = setTimeout(function(){
+        copyButton.text('Copy');
+    }, 1000);
+})
+
+function copyToClipboard(text) {
+    let t = document.createElement('textarea');
+    t.innerHTML = text;
+    document.body.appendChild(t);
+    t.select();
+    let res = document.execCommand('copy');
+    document.body.removeChild(t);
+    return res;
+}
