@@ -121,7 +121,7 @@ tr:first-of-type {
 
 .mid-row {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 }
 
 .mid-row>div {
@@ -143,6 +143,8 @@ tr:first-of-type {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid grey;
+    margin-bottom: 20px;
 }
 
 #options {
@@ -235,7 +237,7 @@ tr:first-of-type {
     background-color: rgb(0, 0, 0, 0.1);
 }
 
-.modal .modal-content{
+.modal .modal-content {
     position: relative;
 }
 
@@ -303,14 +305,19 @@ tr:first-of-type {
     margin-left: 5px;
 }
 
-.modal-close{
+.modal-close {
     position: absolute;
     top: 10px;
     right: 10px;
-    cursor:pointer;
+    cursor: pointer;
     border-radius: 3px;
 }
 
-.modal-close:hover{
+.modal-close:hover {
     background-color: #ededed;
+}
+
+#import-modal-error {
+    font-size: 15px;
+    display:none;
 }

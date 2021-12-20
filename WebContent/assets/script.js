@@ -112,33 +112,49 @@ let importModal = $('#import-modal');
 let importButton = $('#importbutton');
 let modalImportButton = $('#modal-import-button');
 let importData = $('#import-data');
+let importModalError = $('#import-modal-error');
 
 importButton.on('click', function () {
+    importModalError.text('').hide();   
     importModal.css("display", "flex").hide().fadeIn();
 })
 
-modalImportButton.on('click', function(){
-    importToTable(importData.val())
+modalImportButton.on('click', function () {
+    try {
+        importToTable(importData.val());
+        importData.val('');
+    } catch {
+        importModalError.show();
+        importModalError.text('Invalid table markdown')
+    }
 })
 
 function importToTable(data) {
     let split = data.trim().split("\n");
+    let columns = split[1].split("|").length - 2;
     split.splice(1, 1);
-    tableBody.empty();
+    let tempTable = $('<table>');
     split.forEach(e => {
         let values = e.slice(1, -1).split("|");
         let row = $('<tr>');
+        let cols = 0;
         values.forEach(f => {
+            cols++;
             let cell = $('<td contenteditable>');
             cell.text(f.trim());
             row.append(cell);
         })
-        tableBody.append(row);
+        if (cols != columns) {
+            throw new Exception("Columns in row do not match");
+        }
+        tempTable.append(row);
     })
     update();
     importModal.fadeOut();
+    tableBody.empty();
+    tableBody.html(tempTable.html());
 }
 
-$('.modal-close').on('click', function(){
+$('.modal-close').on('click', function () {
     $(this).closest('.modal').fadeOut();
 })
