@@ -1,41 +1,55 @@
 const resultArea = $('#result');
-const midSection = $('.mid-section');
+const tableContainer = $('.table-container');
 
 let responseTimeDisplay = $('#responsetime_ms');
 
-function update() {
+function runAndMeasure(callback) {
     let before = Date.now();
-    resultArea.text(generateMarkdown());
+    callback();
     let responseTime = Date.now() - before;
     responseTimeDisplay.text(responseTime);
 }
 
+function update() {
+    resultArea.text(generateMarkdown());
+}
+
 $(document).on('input', 'td', function () {
-    update();
+    runAndMeasure(function () {
+        update();
+    })
 })
 
 $('.table-add-column').on('click', function () {
-    $('tr').append('<td contenteditable></td>');
-    midSection.prop('scrollLeft', midSection.prop('scrollWidth'));
-    update();
+    runAndMeasure(function () {
+        $('tr').append('<td contenteditable></td>');
+        tableContainer.prop('scrollLeft', tableContainer.prop('scrollWidth'));
+        update();
+    })
 })
 
 $('.table-add-row').on('click', function () {
-    $('table tbody').append('<tr>' + '<td contenteditable></td>'.repeat($('tr').first().find('td').length) + '</tr>');
-    update();
+    runAndMeasure(function () {
+        $('table tbody').append('<tr>' + '<td contenteditable></td>'.repeat($('tr').first().find('td').length) + '</tr>');
+        update();
+    })
 })
 
 $('.table-remove-column').on('click', function () {
     if ($('tr').eq(0).find('td').length > 1) {
-        $('tr td:last-child').remove();
-        update();
+        runAndMeasure(function () {
+            $('tr td:last-child').remove();
+            update();
+        })
     }
 })
 
 $('.table-remove-row').on('click', function () {
     if ($('tr').length > 1) {
-        $('tr').last().remove();
-        update();
+        runAndMeasure(function () {
+            $('tr').last().remove();
+            update();
+        })
     }
 })
 
