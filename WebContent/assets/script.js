@@ -1,8 +1,13 @@
 const resultArea = $('#result');
 const midSection = $('.mid-section');
 
+let responseTimeDisplay = $('#responsetime_ms');
+
 function update() {
+    let before = Date.now();
     resultArea.text(generateMarkdown());
+    let responseTime = Date.now() - before;
+    responseTimeDisplay.text(responseTime);
 }
 
 $(document).on('input', 'td', function () {

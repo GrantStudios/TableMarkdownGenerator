@@ -25,7 +25,8 @@
             </div>
         </div>
         <div class="mid-section">
-            <p class="description">Simply click a cell to add/edit content. The markdown result will appear below.</p>
+            <p class="description">Click a cell to add/edit content. The markdown result will appear below.<br><br>
+                To add/delete a row/column, click the plus and minus signs on the bottom and right.</p>
             <div class="table-container">
                 <div class="table">
                     <div style="display:flex">
@@ -67,6 +68,7 @@
             <div class="toolbar">
                 <div id="importbutton" class="btn"><span class="material-icons">file_upload</span> Import</div>
                 <div id="copybutton" class="btn"><span class="material-icons">content_copy</span> Copy</div>
+                <div id="responsetime">Response time:&nbsp;&nbsp;<span id="responsetime_ms">0</span>ms</div>
             </div>
             <div id="resultarea">
                 <pre id="result" contenteditable>|  |  |  |
@@ -89,7 +91,7 @@
                     This will overwrite previous data in the table</span>
                 <br>
                 <div id="import-area">
-                    <textarea id="import-data"></textarea>
+                    <textarea id="import-data" placeholder="Table markdown..."></textarea>
                 </div>
                 <p id="import-modal-error" class="warning"></p>
             </div>
