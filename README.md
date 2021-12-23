@@ -9,6 +9,8 @@ It's...
 
 - 💥 **powerful**. It features the ability to add/delete new rows/columns with the click of a button, as well as import existing markdown tables to edit in the tool.
 
+- 📙 **compatible**. Generated markdown is compatible with nearly all supersets of Markdown, including [CommonMark](https://commonmark.org/), [Github Flavored Markdown](https://github.github.com/gfm/), [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/), [MultiMarkdown](https://fletcherpenney.net/multimarkdown/) and [R Markdown](https://rmarkdown.rstudio.com/).
+
 ## How To Use
 
 ### Cell Editing
